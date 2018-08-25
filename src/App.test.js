@@ -1,9 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { shallow } from 'enzyme';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import App from './App';
+import RecipeList from './recipe/recipe-list';
+
+describe('<App />', () => {
+    it('renders A <RecipeList /> component', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find(RecipeList)).toHaveLength(1);
+    });
 });
