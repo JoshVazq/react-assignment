@@ -93,6 +93,14 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "@endouble.com/eslint-config-endouble/react"
+  },
+  "eslintIgnore": [
+    "*.test.js",
+    "src/index.js",
+    "src/registerServiceWorker.js"
+  ],
+  "devDependencies": {
+    "@endouble.com/eslint-config-endouble": "^1.2.1"
   }
 }
