@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import RecipeListItem from './recipe-list-item';
+import RecipeListItem from './';
 
 describe('<RecipeListItem />', () => {
     it('renders a recipe', () => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { fetchRecipes } from './service';
-import RecipeListItem from './recipe-list-item';
+import { fetchRecipes } from '../service';
+import RecipeListItem from '../recipe-list-item';
 
 class RecipeList extends Component {
     constructor(props) {

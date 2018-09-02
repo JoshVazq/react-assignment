@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import * as recipeService from './service';
+import * as recipeService from '../service';
 
-import RecipeList from './recipe-list';
-import RecipeListItem from './recipe-list-item';
+import RecipeList from './';
+import RecipeListItem from '../recipe-list-item';
 
-jest.mock('./service', () => ({
+jest.mock('../service', () => ({
     fetchRecipes: jest.fn(),
 }));
 describe('<RecipeList />', () => {
