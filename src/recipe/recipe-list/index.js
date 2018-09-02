@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchRecipes } from '../service';
 import RecipeListItem from '../recipe-list-item';
+import RecipeDetail from '../recipe-detail';
 
 class RecipeList extends Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class RecipeList extends Component {
 
         this.state = {
             recipes: [],
+            current: null,
             loading: true,
         };
     }
@@ -18,11 +20,19 @@ class RecipeList extends Component {
     }
     renderList() {
         return (
-            <div className="flex flex-wrap justify-start">
-                {this.state.recipes.map(recipe => (
-                    <RecipeListItem recipe={recipe} key={`list-item-${recipe.idMeal}`} />
-                ))}
-            </div>
+            <React.Fragment>
+                <div className="flex flex-wrap justify-start">
+                    {this.state.recipes.map(recipe => (
+                        <RecipeListItem
+                            recipe={recipe}
+                            key={`list-item-${recipe.idMeal}`}
+                            onSelected={() => this.setState({ current: recipe })}
+                        />
+                    ))}
+                </div>
+
+                {this.state.current ? <RecipeDetail recipe={this.state.current} /> : null}
+            </React.Fragment>
         );
     }
     render() {
