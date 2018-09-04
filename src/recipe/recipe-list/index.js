@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchRecipes } from '../service';
 import RecipeListItem from '../recipe-list-item';
 import RecipeDetail from '../recipe-detail';
+import Loader from '../../loader';
 
 class RecipeList extends Component {
     constructor(props) {
@@ -31,12 +32,14 @@ class RecipeList extends Component {
                     ))}
                 </div>
 
-                {this.state.current ? <RecipeDetail recipe={this.state.current} /> : null}
+                {this.state.current ? (
+                    <RecipeDetail recipe={this.state.current} onClosed={() => this.setState({ current: null })} />
+                ) : null}
             </React.Fragment>
         );
     }
     render() {
-        return this.state.loading ? <span>Loading...</span> : this.renderList();
+        return this.state.loading ? <Loader /> : this.renderList();
     }
 }
 

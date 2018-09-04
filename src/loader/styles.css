@@ -1,0 +1,35 @@
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  30%,
+  50% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  margin: 0 auto;
+  align-self: center;
+  div {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-timing-function: linear;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+    &:nth-child(1) {
+      animation-delay: -0.3s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.15s;
+    }
+  }
+}

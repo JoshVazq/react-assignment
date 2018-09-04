@@ -4,6 +4,7 @@ import * as recipeService from '../service';
 
 import RecipeList from './';
 import RecipeListItem from '../recipe-list-item';
+import Loader from '../../loader';
 
 jest.mock('../service', () => ({
     fetchRecipes: jest.fn(),
@@ -16,7 +17,7 @@ describe('<RecipeList />', () => {
                 { idMeal: '2', strMealThumb: '', strMeal: '' },
             ]));
         const wrapper = shallow(<RecipeList />);
-        expect(wrapper.text()).toEqual('Loading...');
+        expect(wrapper.find(Loader)).toHaveLength(1);
         expect(recipeService.fetchRecipes).toBeCalled();
         await recipeService.fetchRecipes();
         expect(wrapper.state().loading).toEqual(false);
@@ -25,6 +26,6 @@ describe('<RecipeList />', () => {
     it('does not render Loading', () => {
         const wrapper = shallow(<RecipeList />);
         wrapper.setState({ loading: false });
-        expect(wrapper.text()).toEqual('');
+        expect(wrapper.find(Loader)).toHaveLength(0);
     });
 });

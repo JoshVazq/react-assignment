@@ -1,0 +1,19 @@
+{ 
+    "editor.formatOnSave": true, 
+    "javascript.format.enable": false, 
+    "prettier.eslintIntegration": true, 
+    "prettier.singleQuote": true, 
+    "prettier.trailingComma": "all", 
+    "prettier.tabWidth": 2, 
+    "files.associations": { 
+      "*.css": "postcss" 
+    }, 
+    "emmet.includeLanguages": { 
+      "postcss": "css", 
+      "javascript": "javascriptreact" 
+    }, 
+    "emmet.syntaxProfiles": { 
+      "postcss": "css", 
+      "javascript": "jsx" 
+    } 
+  }

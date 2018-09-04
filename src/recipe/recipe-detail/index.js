@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CloseIcon from '../../icons/close.svg';
 
-const RecipeDetail = ({ recipe }) => (
-    <div
-        className="w-100 w-third-m w-25-l h5 pa2 ba b--white dim cover pointer relative flex items-center justify-center"
-        style={{ backgroundImage: `url(${recipe.strMealThumb})` }}
-    >
-        <span className="f4 w-100 near-white bold tc text-shadow">{recipe.strMeal}</span>
+const RecipeDetail = ({ recipe, onClosed }) => (
+    <div className="absolute absolute--fill bg-white">
+        <div className="h5 cover " style={{ backgroundImage: `url(${recipe.strMealThumb})` }}>
+            <CloseIcon
+                onClick={onClosed}
+                onKeyPress={event => (event.key === 'Enter' ? onClosed() : null)}
+                role="button"
+                tabIndex="0"
+                className="h1 w1 ma2 pa2 fill-white "
+            />
+        </div>
+        <span className="f4 w-100  bold tc">{recipe.strMeal}</span>
     </div>
 );
 RecipeDetail.propTypes = {
@@ -15,5 +22,6 @@ RecipeDetail.propTypes = {
         strMealThumb: PropTypes.string.isRequired,
         strMeal: PropTypes.string.isRequired,
     }).isRequired,
+    onClosed: PropTypes.func.isRequired,
 };
 export default RecipeDetail;
