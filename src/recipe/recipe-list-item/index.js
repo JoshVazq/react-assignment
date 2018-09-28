@@ -8,10 +8,10 @@ const RecipeListItem = ({ recipe, onSelected }) => (
         onKeyPress={event => (event.key === 'Enter' ? onSelected() : null)}
         role="button"
         tabIndex="0"
-        className="w-100 w-third-m w-25-l h5 pa2 ba b--white bg-green dim cover pointer relative flex items-center justify-center"
+        className="w-100 w-third-m w-25-l h5 pa2 ba b--white bg-green dim cover bg-center pointer relative flex items-center justify-center outline-0"
         style={{ backgroundImage: `url(${recipe.strMealThumb})` }}
     >
-        <span className="f4 w-100 near-white bold tc text-shadow">{recipe.strMeal}</span>
+        <span className="f4 w-100 near-white b tc text-shadow">{recipe.strMeal}</span>
     </div>
 );
 RecipeListItem.propTypes = {

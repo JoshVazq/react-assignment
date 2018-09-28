@@ -10,5 +10,8 @@ export function fetchRecipess() {
 export function fetchRecipes() {
     return get(`${API_URL}latest.php`).then(result => result.json().meals);
 }
+export function fetchRecipe(idMeal) {
+    return get(`${API_URL}lookup.php?i=${idMeal}`).then(result => result.json().meals[0]);
+}
 
 export default fetchRecipes;

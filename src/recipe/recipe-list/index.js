@@ -3,6 +3,7 @@ import { fetchRecipes } from '../service';
 import RecipeListItem from '../recipe-list-item';
 import RecipeDetail from '../recipe-detail';
 import Loader from '../../loader';
+import Overlay from '../../overlay';
 
 class RecipeList extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class RecipeList extends Component {
     renderList() {
         return (
             <React.Fragment>
-                <div className="flex flex-wrap justify-start">
+                <div className="h-100 w-100 flex flex-wrap justify-start overflow-auto">
                     {this.state.recipes.map(recipe => (
                         <RecipeListItem
                             recipe={recipe}
@@ -33,7 +34,9 @@ class RecipeList extends Component {
                 </div>
 
                 {this.state.current ? (
-                    <RecipeDetail recipe={this.state.current} onClosed={() => this.setState({ current: null })} />
+                    <Overlay onClose={() => this.setState({ current: null })}>
+                        <RecipeDetail recipe={this.state.current} />
+                    </Overlay>
                 ) : null}
             </React.Fragment>
         );
